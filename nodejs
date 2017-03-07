@@ -1,2 +1,9 @@
 回调函数理解：
 1.
+router.get('/question',function (req,res) {
+  api.getQuestion(function(questionList){
+    questionList = {questionList:questionList};
+    console.log('questionList:'+JSON.stringify(questionList));
+    res.render('question',questionList)
+  })
+});
