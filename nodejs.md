@@ -1,6 +1,7 @@
-回调函数理解：
-```
-- router.get('/question',function (req,res) {
+##回调函数理解：
+###代码
+```javascript
+ 1. router.get('/question',function (req,res) {
   api.getQuestion(function(questionList){
     questionList = {questionList:questionList};
     console.log('questionList:'+JSON.stringify(questionList));
@@ -8,13 +9,13 @@
   })
 }); 
 
-- exports.getQuestion=function (callback) {
+2. exports.getQuestion=function (callback) {
   db.getQuestion(function (rows) {
       callback(rows);
   })
 }; 
 
-- exports.getQuestion = function(callback){
+3. exports.getQuestion = function(callback){
     var aContent =  100;
     var sql = "SELECT d.questionId, " +
         "d.questionTitle," +
@@ -36,4 +37,4 @@
     })
 };
 ```
-
+###解释
