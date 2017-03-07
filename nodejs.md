@@ -1,21 +1,20 @@
 回调函数理解：
-+代码
-1.
-router.get('/question',function (req,res) {
+```
+- router.get('/question',function (req,res) {
   api.getQuestion(function(questionList){
     questionList = {questionList:questionList};
     console.log('questionList:'+JSON.stringify(questionList));
     res.render('question',questionList)
   })
-});
-2.
-exports.getQuestion=function (callback) {
+}); 
+
+- exports.getQuestion=function (callback) {
   db.getQuestion(function (rows) {
       callback(rows);
   })
-};
-3.
-exports.getQuestion = function(callback){
+}; 
+
+- exports.getQuestion = function(callback){
     var aContent =  100;
     var sql = "SELECT d.questionId, " +
         "d.questionTitle," +
@@ -36,5 +35,5 @@ exports.getQuestion = function(callback){
         }
     })
 };
-
+```
 
